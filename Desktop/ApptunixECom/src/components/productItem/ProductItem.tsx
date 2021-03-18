@@ -33,12 +33,6 @@ interface Props {
 }
 
 /**
- * @function areEqual Creating a function for handling unnecessary rerending
- * @description Creating the ProductItem Component
- */
-const areEqual = (prevProps: Props, nextProps: Props) => true;
-
-/**
  * @function ProductItem
  * @description Creating the ProductItem Component
  */
@@ -102,8 +96,7 @@ export const ProductItem = React.memo(function productItem(props: Props) {
         <View style={styles.addToCartContainer}>
           <TouchableOpacity
             onPress={() =>
-              props.onAddToCartPress &&
-              props.onAddToCartPress(props.id, props.isCartItem)
+              props.onAddToCartPress && props.onAddToCartPress(props.id)
             }
             style={styles.addCartContainer}>
             <Image
@@ -154,138 +147,6 @@ export const ProductItem = React.memo(function productItem(props: Props) {
     </View>
   );
 });
-
-// export class ProductItem extends React.Component<Props> {
-//   /**
-//    *
-//    * @description Creating a function for showing product quantity
-//    * @function squareBox
-//    * @param title
-//    * @param titleColor
-//    * @param isTouchable
-//    * @param callBackFun
-//    * @param extraContainerStyle
-//    */
-//   squareBox = (
-//     title: string,
-//     titleColor: TextStyle,
-//     callBackFun?: Function,
-//     extraContainerStyle?: ViewStyle,
-//   ) => {
-//     return (
-//       <TouchableOpacity
-//         activeOpacity={0.5}
-//         onPress={() => callBackFun && callBackFun()}
-//         style={[styles.squareBox, extraContainerStyle]}>
-//         {title === '-' ? (
-//           <View style={styles.minusViewStyle} />
-//         ) : (
-//           <Text style={[styles.quantity, titleColor]}>{title}</Text>
-//         )}
-//       </TouchableOpacity>
-//     );
-//   };
-//   shouldComponentUpdate(nextProps: Props) {
-//     const {id, isCartItem, selectedQuantity} = this.props;
-//     if (
-//       id !== nextProps.id ||
-//       isCartItem !== nextProps.isCartItem ||
-//       selectedQuantity !== nextProps.selectedQuantity
-//     ) {
-//       return true;
-//     }
-//     return false;
-//   }
-//   render() {
-//     const {props} = this;
-//     return (
-//       <View>
-//         <View style={styles.container}>
-//           <Image style={styles.productImage} source={props.image} />
-//           <View style={styles.subContainer}>
-//             <Text style={styles.brandName}>{props.brandName}</Text>
-//             <Text style={styles.productName}>{props.name}</Text>
-//             <View style={styles.priceContainer}>
-//               <Text style={styles.price}>
-//                 <Text>{'\u20B9'}</Text>
-//                 {props.price}
-//               </Text>
-//               {!props.isViewableItem ? (
-//                 <Text style={styles.lineCutStyle}>
-//                   <Text>{'\u20B9'}</Text>
-//                   {props.actualPrice}
-//                 </Text>
-//               ) : (
-//                 <Text style={styles.lineCutStyle}>
-//                   {`${Strings.quantity} ${props.selectedQuantity}`}
-//                 </Text>
-//               )}
-//             </View>
-//           </View>
-//         </View>
-//         {!props.isViewableItem ? (
-//           <View style={styles.addToCartContainer}>
-//             <TouchableOpacity
-//               onPress={() =>
-//                 props.onAddToCartPress &&
-//                 props.onAddToCartPress(props.id, props.isCartItem)
-//               }
-//               style={styles.addCartContainer}>
-//               <Image
-//                 resizeMode="contain"
-//                 style={styles.cartIcon}
-//                 source={Images.cartIcon}
-//               />
-//               <Text style={styles.addToCart}>
-//                 {props.isCartItem ? Strings.removeFromCart : Strings.addToCart}
-//               </Text>
-//             </TouchableOpacity>
-//             <View style={styles.quantityBoxStyle}>
-//               {this.squareBox(
-//                 '-',
-//                 styles.incrementTextStyle,
-//                 () => {
-//                   if (props.selectedQuantity == 1) {
-//                     CommonFunction.showToast(`${Strings.need1Item}`);
-//                   } else
-//                     props.onQuantityPress &&
-//                       props.onQuantityPress(
-//                         props.id,
-//                         props.selectedQuantity - 1,
-//                       );
-//                 },
-//                 undefined,
-//               )}
-//               {this.squareBox(
-//                 `${props.selectedQuantity}`,
-//                 styles.quantityAvail,
-//                 undefined,
-//                 styles.quantityBorderStyle,
-//               )}
-//               {this.squareBox(
-//                 '+',
-//                 styles.incrementTextStyle,
-//                 () => {
-//                   if (props.selectedQuantity == props.totalQuantity) {
-//                     CommonFunction.showToast(
-//                       `${Strings.cantAddMore} ${props.totalQuantity} ${Strings.item}`,
-//                     );
-//                   } else
-//                     props.onQuantityPress &&
-//                       props.onQuantityPress(
-//                         props.id,
-//                         props.selectedQuantity + 1,
-//                       );
-//                 },
-//                 undefined,
-//               )}
-//             </View>
-//           </View>
-//         ) : null}
-//       </View>
-//     );
-//   }
-// }
 
 /**
  *

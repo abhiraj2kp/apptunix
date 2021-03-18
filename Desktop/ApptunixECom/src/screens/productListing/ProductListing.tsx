@@ -87,7 +87,7 @@ export const ProductListing = function name({navigation}: Props) {
    * @param productId
    * @param isCartItem
    */
-  var onAddToCartPress = (productId: string, isCartItem: boolean) => {
+  var onAddToCartPress = (productId: string) => {
     const cpyProducts = productListing;
     const index = cpyProducts.findIndex(
       (item: ProductDetail) => item.id === productId,
@@ -95,7 +95,7 @@ export const ProductListing = function name({navigation}: Props) {
     if (index !== -1) {
       cpyProducts[index] = {
         ...cpyProducts[index],
-        ...{isCartItem: !isCartItem},
+        ...{isCartItem: !cpyProducts[index].isCartItem},
       };
       dispatch(ProductListAction.updateProductIntoList(cpyProducts.splice(0)));
     }
