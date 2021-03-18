@@ -1,0 +1,15 @@
+export default {
+  mat: require('../../assets/images/mat.webp'),
+  pillow: require('../../assets/images/pillow.webp'),
+  carvaan: require('../../assets/images/carvaan.webp'),
+  backIcon: require('../../assets/images/backIcon.png'),
+  cartIcon: require('../../assets/images/cartIcon.png'),
+  dhrisham: require('../../assets/images/dhrisham.webp'),
+  car_handle1: require('../../assets/images/car-handle1.webp'),
+  apptunixIcon: require('../../assets/images/apptunixIcon.png'),
+  bhagavadGita: require('../../assets/images/bhagavadGita.webp'),
+  hanumanChalisa: require('../../assets/images/hanumanChalisa.webp'),
+  bed_comfort_wedge: require('../../assets/images/bed_comfort_wedge.webp'),
+  carvaan_mini_sc02_blue_1: require('../../assets/images/carvaan_mini_sc02_blue_1.webp'),
+  honeycomb_cushion_with_cover_: require('../../assets/images/honeycomb_cushion_with_cover_.webp'),
+};
