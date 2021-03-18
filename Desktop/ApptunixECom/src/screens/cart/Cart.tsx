@@ -77,9 +77,7 @@ export const Cart = React.memo(({navigation}: Props) => {
         image={item.image}
         price={item.price}
         isViewableItem={true}
-        onQuantityPress={() => {}}
         brandName={item.brandName}
-        onAddToCartPress={() => {}}
         isCartItem={item.isCartItem}
         actualPrice={item.actualPrice}
         totalQuantity={item.totalQuantity}
@@ -174,6 +172,7 @@ const styles = StyleSheet.create({
     height: normalize(50),
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: normalize(20),
     borderRadius: normalize(25),
     marginHorizontal: normalize(20),
     backgroundColor: Colors.darkBlue,
